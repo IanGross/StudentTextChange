@@ -1,0 +1,95 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: purple;
+  color: white;
+}
+.center{
+ 	margin: auto;
+ 	width: 50%;
+ 	height: 120px;
+}
+.header{
+ 	text-align: center;
+ 	margin: auto;
+ 	width: 50%;
+  color: white;
+ 	/*border-top: 10px solid red;
+  border-bottom: 10px solid green;
+  border-right: 10px solid blue;
+  border-left: 10px solid yellow;
+  */
+  /*padding: 4px 0  4px 0;*/
+}
+.footer{
+ 	text-align: center;
+ 	margin: auto;
+ 	width: 50%;
+ 	border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  border-right: 2px solid #333;
+  border-left: 2px solid #333;
+  padding: 4px 0  4px 0;
+  white-space: nowrap;
+}
+.noborder{
+margin: 0px;
+}
+.lower{
+ 	text-align: center;
+ 	margin: auto;
+ 	width: 50%;
+}
+.middle{
+  /*text-align: center;*/
+  color: white;
+  margin: auto;
+  width: 50%;
+
+
+}
+h3{
+  width: auto;
+}
+
+.field {
+  width: 350px;
+  margin: 0 0.5em 0.5em 0;
+  margin-left: 8%;
+  float: left;
+  clear: left;
+  text-align: right;
+}
+
+.value {
+  margin: 0 0 0.5em 0;
+}
+.upperleft{
+  float: left;
+  clear: left;
+  margin-left: 25%;
+  margin-right: 0;
+}
+.upperright{
+  float: right;
+  clear: right;
+  margin-right: 25%;
+  margin-left: 0;
+}
+h2{
+  text-align: center;
+
+}
+
+.left{
+  width: 51%;
+  float: left;
+  margin-left: 0%;
+  border-right: thick solid #ffffff;
+}
+
+.right{
+  width: 48%;
+  float: right;
+  margin-right: 0%;
+  /*border-left: thick solid #ffffff;*/
+}
