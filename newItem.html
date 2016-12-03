@@ -3,14 +3,14 @@
   <head>
     <title>Add New Item</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="resources/mysite.css"
-      rel="stylesheet"
-      type="text/css"/>
+    <link href="resources/mysite.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
-    <div class="upperleft">
-      <form action="inventory.html">
+
+	<div id="bodyBlock">
+	<div class="upperleft">
+      <form action="inventory.php">
         <button type="submit">Back</button>
       </form>
     </div>
@@ -18,62 +18,64 @@
     <div class="header">
       <h1>Add New Item</h1>
     </div>
+	
+	
+	
+    <form action="inventory.php">
 
 
-    <form action="inventory.html">
-
-
-      <div class="middle">
+      <div class="middle_items">
         <h3><label class="field">Item Name:</label></h3>
-        <div class="value"><input type="text" size="25" value=""/></div>
+        <div class="value"><input type="text" size="25" value="" required/></div>
 
         <h3><label class="field">Asking Price:</label></h3>
+        <div class="value"><input type="text" size="25" value="" required/></div>
+		
+		<h3><label class="field">Condition:</label></h3>
+		<select class="selected" required>
+			<option value="" selected>None Selected...</option>
+			<option value="BrandNew">Brand New</option>
+			<option value="LikeNew">Like New</option>
+			<option value="VeryGood">Very Good</option>
+			<option value="Good">Good</option>
+			<option value="Acceptable">Acceptable</option>
+			<option value="poor">Poor</option>
+		</select>
+		
+
+        <h3><label class="field">Description (<i>Not Required</i>):</label></h3>
         <div class="value"><input type="text" size="25" value=""/></div>
-
-        <h3><label class="field">Condition:</label></h3>
-        <input type="radio" name="condition" id="new" value="new"/>
-        <label for="new">New</label>
-
-        <input type="radio" name="condition" id="great" value="great"/>
-        <label for="great">Great</label>
-
-        <input type="radio" name="condition" id="good" value="good"/>
-        <label for="good">Good</label>
-        
-        <input type="radio" name="condition" id="fair" value="fair"/>
-        <label for="fair">Fair</label>
-
-        <input type="radio" name="condition" id="poor" value="poor"/>
-        <label for="poor">Poor</label>
-
-
-        <h3><label class="field">Description (Not Required):</label></h3>
-        <div class="value"><input type="text" size="25" value=""/></div>
-
-        <h3><label class="field">Category:</label></h3>
-        <input type="radio" name="category" id="textbook" value="textbook"/>
-        <label for="textbook">Textbook</label>
-        
-        <input type="radio" name="category" id="notes" value="notes"/>
-        <label for="notes">Notes</label>
-
-        <input type="radio" name="category" id="schoolItems" value="schoolItems"/>
-        <label for="schoolItems">School Items</label>
+		
+		<!--<h3><label class="field" for="comments">Description (<i>Not Required</i>):</label></h3>
+        <div class="value"><textarea rows="4" cols="40" name="comments" id="comments"></textarea></div>-->
+		
+		
+		
+		<h3><label class="field">Category:</label></h3>
+		<select class="selected" required>
+			<option value="" selected>None Selected...</option>
+			<option value="textbook">Textbook</option>
+			<option value="notes">Notes</option>
+			<option value="school_supplies">School Supplies</option>
+			<option value="Other">Other</option>
+		</select>
 
 
         <h3><label class="field">Your Name:</label></h3>
-        <div class="value"><input type="text" size="25" value=""/></div>
+        <div class="value"><input type="text" size="25" value="" required/></div>
 
-        <h3><label class="field">Email, Phone Number, or other preferred method of contact:</label></h3>
-        <div class="value"><input type="text" size="25" value=""/></div>
+        <h3><label class="field">Contact Information:</label></h3>
+        <div class="value"><input type="text" size="25" value="" required/></div>
 
         <br/>
 
-        <button type="submit">Submit</button>
+        <!-- <button type="submit">Submit</button> -->
+		<input type="submit" value="Submit" id="Submit" name="submit"/>
 
       </div>
 
     </form>
+	</div>
 
   </body>
 </html>
