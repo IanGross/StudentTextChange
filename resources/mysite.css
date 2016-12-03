@@ -1,7 +1,7 @@
 body {
   font-family: "Times New Roman", Times, serif;
-  background-color: purple;
-  color: white;
+  background-color: #551A8B;
+  color: red;
 }
 .center{
  	margin: auto;
@@ -12,7 +12,7 @@ body {
  	text-align: center;
  	margin: auto;
  	width: 50%;
-  color: white;
+  color: black;
  	/*border-top: 10px solid red;
   border-bottom: 10px solid green;
   border-right: 10px solid blue;
@@ -43,12 +43,16 @@ margin: 0px;
   /*text-align: center;*/
   color: white;
   margin: auto;
-  width: 50%;
-
-
+  width: 70%;
 }
+.subitem{
+	color: grey;
+}
+
+
 h3{
   width: auto;
+  
 }
 
 .field {
@@ -58,6 +62,16 @@ h3{
   float: left;
   clear: left;
   text-align: right;
+}
+
+.subitem_title {
+  width: 350px;
+  margin: 0 0.5em 0.5em 0;
+  margin-left: 8%;
+  float: left;
+  clear: left;
+  text-align: right;
+  text-decoration: underline;
 }
 
 .value {
@@ -93,3 +107,48 @@ h2{
   margin-right: 0%;
   /*border-left: thick solid #ffffff;*/
 }
+
+h4{
+  text-align: left;
+}
+
+/*#myForm input[type=text]*/
+input.search {
+    width: 130px;
+	margin-right: 20px auto;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('http://localhost/iitforms/resources/search-icon-png.png');
+    background-repeat: no-repeat;
+	background-position: top left;
+	background-size: 40px 40px;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+	
+}
+.search_cent{
+  text-align: center;
+  margin: auto;
+  margin-bottom:20px;
+  
+}
+
+input.search:focus {
+    width: 25%;
+}
+
+
+#save {
+  float: right;
+}
+input:focus{
+  background-color: #fee;
+}
+textarea:focus{
+  background-color: #fee;
+}
+
