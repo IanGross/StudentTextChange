@@ -6,13 +6,56 @@
     <script type="text/javascript" src="resources/jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="resources/iit.js"></script>   
     <link href="resources/ii.css" rel="stylesheet" type="text/css"/>
-	<link href="http://localhost/iitforms/resources/mysite.css" rel="stylesheet" type="text/css"/>
+	<!--<link href="http://localhost/iitforms/resources/mysite.css" rel="stylesheet" type="text/css"/>-->
+	<link href="resources/mysite.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
 	<div class="header">
       <h1>Student Text-Change</h1>
     </div>
-            
+
+
+
+<?php
+   include("config.php");
+   session_start();
+   
+   $havePost2 = isset($_POST["login"]);
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST" && $havePost2) {
+      // username and password sent from form 
+      
+      $myusername = mysqli_real_escape_string($db,$_POST['userName']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['passWord']); 
+      
+      $sql = "SELECT username FROM users WHERE users.username = '$myusername' and users.password = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      //$active = $row['active'];
+      
+      $count = mysqli_num_rows($result);
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+		
+      if($count == 1) {
+         //session_register("myusername");
+         $_SESSION['login_user'] = $myusername;
+         
+         header("location: inventory.php");
+      }else {
+         $error = "Your Login Name or Password is invalid";
+		 echo $error;
+      }
+   }
+?>
+
+
+
+
+
+
+
+	
 <?php 
   /* some very basic form processing */
   
@@ -121,16 +164,20 @@
       <h2>Log In</h2>
     </div>
 	
-	<form id="userloginForm" name="userloginForm" method="post" action="inventory.php">
+	
+	
+	
+	
+	<form id="userloginForm" name="userloginForm" method="post" action="">
 		<fieldset> 
 
 		  <div class="middle">
 			<h3><label class="field">Email (Use your RPI Email Address):</label></h3>
-			<div class="value"><input type="text" size="25" value="<?php echo $loginUserName; ?>" name="loginUserName" id="loginUserName"/></div>
-
+			<div class="value"><input type="text" size="25" name="userName" class = "box"/></div>
+			<!-- value="<?php/* echo $userName;*/ ?>" -->
 			<h3><label class="field">Password:</label></h3>
-			<div class="value"><input type="password" size="25" value="<?php echo $loginUserPassword; ?>" name="loginUserPassword" id="loginUserPassword"/></div>
-
+			<div class="value"><input type="password" size="25" name="passWord" class = "box"/></div>
+			<!-- value="<?php/* echo $userName;*/ ?>" -->
 			
 			<input type="submit" value="login" id="login" name="login"/>
 		
@@ -162,34 +209,5 @@
 		  </div>
 	   </fieldset> 
     </form>
-
-
-
-
-<?php if($havePost && $errors == '') { ?>
-  <h3>Actor:</h3>
-  <table>
-    <tr>
-      <th>Name:</th>
-      <td>
-        <?php echo $loginUserName; ?>
-        <?php echo $loginUserPassword; ?>
-		<?php echo $loginUserPasswordVal; ?>
-      </td>
-    </tr>
-  </table>
-  
-  <h3>All Parameters:</h3>
-  <?php
-    // loop over all the raw request parameters
-    echo '<table>';
-    foreach($_POST AS $key => $value) {
-      echo '<tr><td>' . htmlspecialchars($key) . '</td><td>' . htmlspecialchars($value) . '</td></tr>';
-    }
-    echo '</table>';
-  }
-?>
-
-      
   </body>
 </html>
