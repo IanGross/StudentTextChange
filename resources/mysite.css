@@ -1,7 +1,16 @@
 body {
   font-family: "Times New Roman", Times, serif;
+  background-image: url("http://www.rycorsoftware.com/SFimages/default-source/leaf-textbook-management-images/leaf-banner_tinypng.png?sfvrsn=2");
+  background-repeat: no-repeat;
+  background-size: 1700px 845px;
   background-color: #551A8B;
-  color: red;
+  display: block;
+  color: blanchedalmond;
+  /*background-color: #551A8B;
+  color: red;*/
+}
+img:hover{
+  opacity:.5;
 }
 .center{
  	margin: auto;
@@ -64,8 +73,33 @@ body {
   padding: 1em;
   border: 1px solid #ddd;
 }
-.subitem{
+.subitem_text{
 	color: grey;
+	padding-left:20%;
+}
+.inventory_item{
+	/*width:46%;*/
+	/*background-color: #9932CC;*/
+	/* old code
+	color:white;
+	
+	width:100%;
+	max-height: 50%;
+	max-width:50%;
+	display: inline-block;
+	padding: 1em;
+	margin: 2px;
+	border: 1px solid #ddd;
+	margin: 0 auto;*/
+	
+	max-width: 600px;
+	/*display: inline-block;	*/
+	margin: 2px;
+	width: 100%; 
+	margin: 0 auto;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 10px;
 }
 
 
@@ -88,14 +122,18 @@ h3{
   text-align: center;
 }
 
+.title{
+	color:blue;
+}
+
 .subitem_title {
-  width: 350px;
-  margin: 0 0.5em 0.5em 0;
-  margin-left: 27%;
-  float: left;
-  clear: left;
+  /*width: 10px;*/
+  /*margin: 0 0.5em 0.5em 0;*/
+  /*margin-left: 5%;*/
+  /*float: left;
+  clear: left;/*
   text-align: right;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 
 .value {
@@ -218,5 +256,9 @@ input:focus{
 textarea:focus{
   background-color: #fee;
 }
-
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
