@@ -4,6 +4,11 @@ body {
   background-repeat: no-repeat;
   background-size: 1700px 845px;
   background-color: #551A8B;
+  background-attachment: fixed;
+  background-position: left top;
+  text-shadow: 1px 1px 1px #000;
+  position:relative;
+  
   display: block;
   color: blanchedalmond;
   /*background-color: #551A8B;
@@ -13,16 +18,16 @@ img:hover{
   opacity:.5;
 }
 .center{
- 	margin: auto;
- 	width: 50%;
- 	height: 120px;
+  margin: auto;
+  width: 50%;
+  height: 120px;
 }
 .header{
- 	text-align: center;
- 	margin: auto;
- 	width: 50%;
+  text-align: center;
+  margin: auto;
+  width: 50%;
   color: black;
- 	/*border-top: 10px solid red;
+  /*border-top: 10px solid red;
   border-bottom: 10px solid green;
   border-right: 10px solid blue;
   border-left: 10px solid yellow;
@@ -30,10 +35,10 @@ img:hover{
   /*padding: 4px 0  4px 0;*/
 }
 .footer{
- 	text-align: center;
- 	margin: auto;
- 	width: 50%;
- 	border-top: 2px solid #333;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border-top: 2px solid #333;
   border-bottom: 2px solid #333;
   border-right: 2px solid #333;
   border-left: 2px solid #333;
@@ -52,12 +57,13 @@ img:hover{
   /*text-align: center;*/
   color: white;
   margin: auto;
+  /*background-color: rgba(41, 255, 176, 0.14);*/
 }
 .middle_items{
   color: white;
   margin: auto;
   margin: 1em 0;
-  background-color: #9932CC;
+  background-color: rgba(111, 41, 209, 0.6);
   padding: 1em;
   border: 1px solid #ddd;
 }
@@ -100,6 +106,7 @@ img:hover{
 	border: 1px solid #ddd;
 	border-radius: 10px;
 	padding: 10px;
+	background-color: rgba(41, 194, 255, 0.14);
 }
 
 
@@ -174,23 +181,27 @@ h2{
 }
 
 .left{
+  /*
   width: 51%;
   float: left;
-  /*margin:10%;*/
+  
   margin-left: 0%;
   border-right: thick solid #ffffff;
   width: 750px;
   
-  
-  /*width:600px; /* or whatever width you want. */
-  /*max-width:600px; /* or whatever width you want. */
   display: inline-block;
   background-color: grey;
   padding: 1em;
   border: 1px solid #ddd;
+  */
+  
+  /*margin:10%;*/
+  /*width:600px; /* or whatever width you want. */
+  /*max-width:600px; /* or whatever width you want. */
 }
 
 .right{
+	/*
   width: 48%;
   float: right;
   margin-right: 0%;
@@ -199,17 +210,19 @@ h2{
   
   
   color: white;
-  width:600px; /* or whatever width you want. */
-  max-width:600px; /* or whatever width you want. */
+  width:600px;
+  max-width:600px;
   display: inline-block;
   position: relative;
-  /*
-  margin: 50px;
-  margin: 1em 0;*/
+  
   background-color: grey;
   padding: 1em;
   border: 1px solid #ddd;
+  */
   
+  /*
+  margin: 50px;
+  margin: 1em 0;*/
   /*border-left: thick solid #ffffff;*/
 }
 
