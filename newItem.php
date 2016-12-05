@@ -9,7 +9,7 @@
   <body>
 
 	<div id="bodyBlock">
-	<div class="upperleft">
+	<div class="upperleftNewItem">
       <form action="inventory.php">
         <button type="submit">Back</button>
       </form>
@@ -136,7 +136,8 @@
 
         <!-- <button type="submit">Submit</button> -->
 		<input type="submit" value="Submit" id="save" name="save"/>
-
+		<br/>
+		<!--threw in the br above-->
       </div>
 
     </form>
