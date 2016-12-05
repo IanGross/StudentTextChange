@@ -28,9 +28,6 @@
 		$categoryInput = '';
 		$nameInput = '';
 		$contactInput = '';
-	
-	
-	
 	?>
 	
 	
@@ -51,7 +48,11 @@
 	
 	
 
-	  
+		session_start();
+		$user_get = $_SESSION["login_user"];
+		include("config.php");
+		
+		/*
 		$servername = "localhost";
 		$username = "root";
 		$password = "localhost";
@@ -62,19 +63,22 @@
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
-		} 
+		} */
+		
+		
+		$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory";
+		//$result = $conn->query($sql);
+		//$result = mysqli_query($db,$sql);
 
-		//INSERT INTO inventory (item_id, item_name, item_condition, description, price, category, contact_info, full_name, username, date_added) 
-		//VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', CURRENT_TIMESTAMP)
 		$sql = "INSERT INTO inventory (item_name, item_condition, description, price, category, contact_info, full_name, username, date_added) 
-		VALUES ('$itemName', '$conditionInput', '$descriptionInput', '$priceReq', '$categoryInput', '$contactInput', '$nameInput', '', CURRENT_TIMESTAMP)";
-		//CURRENT_DATE()
+		VALUES ('$itemName', '$conditionInput', '$descriptionInput', '$priceReq', '$categoryInput', '$contactInput', '$nameInput', '$user_get', CURRENT_TIMESTAMP)";
 
-		if ($conn->multi_query($sql) === TRUE) { $message = "New records created successfully";
+		//if ($conn->multi_query($sql) === TRUE) { $message = "New records created successfully";
+		if (mysqli_query($db,$sql) === TRUE) { $message = "New records created successfully";
 			echo "<script type='text/javascript'>alert('$message');</script>"; } 
-		else { echo "Error: " . $sql . "<br>" . $conn->error; }
+		else { echo "Error: " . $sql . "<br>" . $db->error; }
 
-		$conn->close();
+		//$conn->close();
 		
 		$itemName = '';
 		$priceReq = '';
@@ -108,11 +112,8 @@
 		</select>
 		
 
-        <h3><label class="field">Description (<i>Not Required</i>):</label></h3>
+        <h3><label class="field">Description:</label></h3>
         <div class="value"><input type="text" size="25" value="<?php echo $descriptionInput;?>" name="descriptionInput" id="descriptionInput" required/></div>
-		
-		<!--<h3><label class="field" for="comments">Description (<i>Not Required</i>):</label></h3>
-        <div class="value"><textarea rows="4" cols="40" name="comments" id="comments"></textarea></div>-->
 		
 		
 		
@@ -134,10 +135,9 @@
 
         <br/>
 
-        <!-- <button type="submit">Submit</button> -->
 		<input type="submit" value="Submit" id="save" name="save"/>
 		<br/>
-		<!--threw in the br above-->
+
       </div>
 
     </form>
