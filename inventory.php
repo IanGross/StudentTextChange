@@ -8,14 +8,14 @@
 
   <body>
     <div class="upperleft">
-      <form action="newItem.html">
+      <form action="newItem.php">
         <button type="submit">Add New Item</button>
       </form>
     </div>
 
 
     <div class="upperright">
-      <form action="profile.html">
+      <form action="profile.php">
         <button type="submit">Profile</button>
       </form>
     </div>
@@ -30,27 +30,21 @@
 	  </form>
 	</div>
 
-
     <fieldset>
       <div class="middle">
 		
 		
 		<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "localhost";
-		$dbname = "iit";
+		//session_start();
 		$money_symbol="$";
-
-		// Create connection
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-			 die("Connection failed: " . $conn->connect_error);
-		} 
-
+		
+		include("config.php");
+		session_start();
+		
 		$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory";
-		$result = $conn->query($sql);
+		//$result = $conn->query($sql);
+		$result = mysqli_query($db,$sql);
+		
 
 		if ($result->num_rows > 0) {
 			 // output data of each row
@@ -73,35 +67,11 @@
 		} else {
 			 echo "0 results";
 		}
-		
-		/*
-		        <div class="title"><h2>Place Holder</h2></div>
-
-        <h3><label class="field">Asking Price:</label></h3>
-        <div class="askingPrice"><h4>Place Holder</h4></div>
-
-        <h3><label class="field">Condition:</label></h3>
-        <div class="condition"><h4>Place Holder</h4></div>
-
-        <h3><label class="field">Description:</label></h3>
-        <div class="description"><h4>Place Holder</h4></div>
-
-        <h3><label class="field">Category:</label></h3>
-        <div class="category"><h4>Place Holder</h4></div>
-
-        <h3><label class="field">Contact Info:</label></h3>
-        <div class="contact Info"><h4>Place Holder</h4></div>
-		*/
 
 		$conn->close();
 		?>  
-
-
-
       </div>
-
     </fieldset>
-
   </body>
 </html>
 
