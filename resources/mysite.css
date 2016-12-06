@@ -109,6 +109,39 @@ img:hover{
 	background-color: rgba(41, 194, 255, 0.14);
 }
 
+.profile_item{
+	/*width:46%;*/
+	/*background-color: #9932CC;*/
+	/* old code
+	color:white;
+	
+	width:100%;
+	max-height: 50%;
+	max-width:50%;
+	display: inline-block;
+	padding: 1em;
+	margin: 2px;
+	border: 1px solid #ddd;
+	margin: 0 auto;*/
+	/*display: inline-block;	*/
+	margin: auto;
+	width: 70%; 
+	margin: 0 auto;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: rgba(41, 194, 255, 0.14);
+}
+.user_items{
+  color: white;
+  width: 60%;
+  margin: auto;
+  margin: 3px auto;
+  background-color: rgba(111, 41, 209, 0.6);
+  padding: 1em;
+  border: 1px solid #ddd;
+}
+
 
 #bodyBlock {
   width: 750px;
@@ -157,12 +190,14 @@ h3{
 }
 
 .upperleft{
+	/* SLATED FOR DELETE*/
   float: left;
   clear: left;
   margin-left: 22.5%;
   margin-right: 0;
 }
 .upperleftNewItem{
+	/* SLATED FOR DELETE*/
   float: left;
   clear: left;
   margin-left: 0%;
@@ -239,20 +274,20 @@ input.search {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('http://localhost/iitforms/resources/search-icon-png.png');
+    background-image: url(../resources/search-icon-png.png);
     background-repeat: no-repeat;
 	background-position: top left;
 	background-size: 40px 40px;
-    padding: 12px 20px 12px 40px;
+    padding: 11px 20px 11px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 	
 }
 .search_cent{
-  text-align: center;
+  /*text-align: center;*/
   margin: auto;
-  margin-bottom:20px;
-  
+  /*margin-bottom:20px;*/
+  margin-right:40px;
 }
 
 input.search:focus {
