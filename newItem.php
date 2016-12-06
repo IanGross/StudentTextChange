@@ -4,6 +4,18 @@
     <title>Add New Item</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="resources/mysite.css" rel="stylesheet" type="text/css"/>
+	
+	
+	
+	<?php
+	include("config.php");
+	session_start();
+	$user_get = $_SESSION["login_user"];
+	?>
+	
+	
+	
+	
   </head>
 
   <body>
@@ -33,10 +45,10 @@
 	
 	<?php 
   
-  // have we posted?
-  $havePost = isset($_POST["save"]);
-  
-  if ($havePost) {
+	// have we posted?
+	$havePost = isset($_POST["save"]);
+	
+	if ($havePost) {
 	
 	$itemName = htmlspecialchars(trim($_POST["itemName"]));
 	$priceReq = htmlspecialchars(trim($_POST["priceReq"]));
@@ -45,49 +57,26 @@
 	$categoryInput = htmlspecialchars(trim($_POST["categoryInput"]));
 	$nameInput = htmlspecialchars(trim($_POST["nameInput"]));
 	$contactInput = htmlspecialchars(trim($_POST["contactInput"]));
+
+	//session_start();
+	//$user_get = $_SESSION["login_user"];
+	//include("config.php");
 	
+	$sql = "INSERT INTO inventory (item_name, item_condition, description, price, category, contact_info, full_name, username, date_added) 
+	VALUES ('$itemName', '$conditionInput', '$descriptionInput', '$priceReq', '$categoryInput', '$contactInput', '$nameInput', '$user_get', CURRENT_TIMESTAMP)";
 	
-
-		session_start();
-		$user_get = $_SESSION["login_user"];
-		include("config.php");
-		
-		/*
-		$servername = "localhost";
-		$username = "root";
-		$password = "localhost";
-		$dbname = "iit";
-
-		// Create connection
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		} */
-		
-		
-		$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory";
-		//$result = $conn->query($sql);
-		//$result = mysqli_query($db,$sql);
-
-		$sql = "INSERT INTO inventory (item_name, item_condition, description, price, category, contact_info, full_name, username, date_added) 
-		VALUES ('$itemName', '$conditionInput', '$descriptionInput', '$priceReq', '$categoryInput', '$contactInput', '$nameInput', '$user_get', CURRENT_TIMESTAMP)";
-
-		//if ($conn->multi_query($sql) === TRUE) { $message = "New records created successfully";
-		if (mysqli_query($db,$sql) === TRUE) { $message = "New records created successfully";
-			echo "<script type='text/javascript'>alert('$message');</script>"; } 
-		else { echo "Error: " . $sql . "<br>" . $db->error; }
-
-		//$conn->close();
-		
-		$itemName = '';
-		$priceReq = '';
-		$conditionInput = '';
-		$descriptionInput = '';
-		$categoryInput = '';
-		$nameInput = '';
-		$contactInput = '';
-  }
+	if (mysqli_query($db,$sql) === TRUE) { $message = "New records created successfully";
+		echo "<script type='text/javascript'>alert('$message');</script>"; } 
+	else { echo "Error: " . $sql . "<br>" . $db->error; }
+	
+	$itemName = '';
+	$priceReq = '';
+	$conditionInput = '';
+	$descriptionInput = '';
+	$categoryInput = '';
+	$nameInput = '';
+	$contactInput = '';
+	}
 ?>
 	
 	
@@ -120,9 +109,10 @@
 		<h3><label class="field">Category:</label></h3>
 		<select class="selected" value="<?php echo $categoryInput;?>" name="categoryInput" id="categoryInput" required>
 			<option value="" selected>None Selected...</option>
-			<option value="textbook">Textbook</option>
-			<option value="notes">Notes</option>
-			<option value="school_supplies">School Supplies</option>
+			<option value="Electronics">Electronics</option>
+			<option value="Notes">Notes</option>
+			<option value="Textbook">Textbook</option>
+			<option value="School Supplies">School Supplies</option>
 			<option value="Other">Other</option>
 		</select>
 
