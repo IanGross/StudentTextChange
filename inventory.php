@@ -4,33 +4,57 @@
     <title>Inventory</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="resources/mysite.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	-->
+	
+	
+	<?php
+	include("config.php");
+	session_start();
+	$user_get = $_SESSION["login_user"];
+	$searchTerm = '';
+	?>
+	
+	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="inventory.php">Student TextChange</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-left">
+	      <li><a href="newItem.php">Add New Item</a></li>
+	      <li><a href="profile.php">Profile</a></li>
+	    </ul>
+		<ul class="nav navbar-nav navbar-right">
+	      <li><a href="profile.php">Logged in as <?php echo $user_get;?></a></li>
+	    </ul>
+		<div class = "search_cent">
+		  <form name="searchBox" target="" method="post">
+			<input type="text" class="search" value="<?php echo $searchTerm;?>" name="searchIt" id="searchIt" placeholder="Search..">
+		  </form>
+		</div>
+	  </div>
+	</nav>
+	
   </head>
+  
+  
+  
 
   <body>
-    <div class="upperleft">
-      <form action="newItem.php">
-        <button type="submit">Add New Item</button>
-      </form>
-    </div>
-
-
-    <div class="upperright">
-      <form action="profile.php">
-        <button type="submit">Profile</button>
-      </form>
-    </div>
+  
+ 
 
     <div class="header">
-      <h1>Inventory</h1>
+      <h1><b>Inventory</b></h1>
     </div>
+	 <br>
 	
-	<?php $searchTerm = ''; ?>
 	
-	<div class = "search_cent">
-	  <form name="searchBox" target="" method="post">
-        <input type="text" class="search" value="<?php echo $searchTerm;?>" name="searchIt" id="searchIt" placeholder="Search..">
-	  </form>
-	</div>
 	
 	<!--
 	<div class="parent">
@@ -55,11 +79,10 @@
 		//session_start();
 		$money_symbol="$";
 		
-		include("config.php");
-		session_start();
+		
 		
 		//$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory";
-		$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory";
+		$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory ORDER BY date_added DESC";
 		//WHERE item_name LIKE '%at%'";
 		//$result = $conn->query($sql);
 		
@@ -73,7 +96,7 @@
 			"item_condition LIKE '%$searchTerm%'");
 			//$searchTermBits[] = "item_name LIKE '%$searchTerm%'", "description LIKE '%$searchTerm%'";
 			$sql = "SELECT item_name, item_condition, description, price, category, contact_info FROM inventory
-			WHERE " .implode(' OR ', $searchTermBits);
+			WHERE " .implode(' OR ', $searchTermBits). " ORDER BY date_added DESC";
 			//WHERE item_name LIKE '%\'$searchTerm\'%'";	
 		}
 		
@@ -102,6 +125,9 @@
 				 echo"<div class=\"subitem_text\"><h4>". $row["contact_info"]."</h4></div><br>";
 				 */
 				 
+				 echo"<div class=\"subitem\"><h3><label><u>Category</u>: &nbsp;&nbsp;&nbsp;&nbsp;</label>";
+				 echo $row["category"]."</h3></div>";
+				 
 				 echo"<div class=\"subitem\">";
 				 echo"<h3><label><u>Asking Price</u>: &nbsp;&nbsp;&nbsp;&nbsp;</label>";
 				 echo"$money_symbol". $row["price"]."</h3>";
@@ -127,6 +153,7 @@
 				 echo"<div class=\"subitem_text\"><h4>". $row["contact_info"]."</h4></div><br>";
 				 */
 				 ?> </div><?php
+				 echo "</br>";
 			}
 		} else {
 			 echo "0 results";
