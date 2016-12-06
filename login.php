@@ -53,22 +53,19 @@
 	<div class="header">
       <h2>Log In</h2>
     </div>
-	
-	<form id="userloginForm" name="userloginForm" method="post" action="">
-		<fieldset> 
-
-		  <div class="middle">
-			<h3><label class="field">Email (Use your RPI Email Address):</label></h3>
-			<div class="value"><input type="text" size="25" name="userName" class = "box"/></div>
-			<!-- value="<?php/* echo $userName;*/ ?>" -->
-			<h3><label class="field">Password:</label></h3>
-			<div class="value"><input type="password" size="25" name="passWord" class = "box"/></div>
-			<!-- value="<?php/* echo $userName;*/ ?>" -->
-			
-			<input type="submit" value="login" id="login" name="login"/>
-		
-		  </div>
-	   </fieldset> 
-    </form>
+	<div class="middle">
+		<form id="userloginForm" name="userloginForm" method="post" action="">
+			<fieldset> 
+				<h3><label class="field">Email (Use your RPI Email Address):</label></h3>
+				<div class="value"><input type="text" size="25" name="userName" class = "box"/></div>
+				<!-- value="<?php/* echo $userName;*/ ?>" -->
+				<h3><label class="field">Password:</label></h3>
+				<div class="value"><input type="password" size="25" name="passWord" class = "box"/></div>
+				<!-- value="<?php/* echo $userName;*/ ?>" -->
+				
+				<input type="submit" value="login" id="login" name="login"/>
+		   </fieldset> 
+		</form>
+	</div>
   </body>
 </html>
