@@ -50,9 +50,7 @@
 	$havePost = isset($_POST["deleteBtn"]);
   
 	if ($havePost) {
-		echo "hello";
 		$tmp = $_POST["lblItemName"];
-		echo $tmp;
 		$sql = "DELETE FROM inventory WHERE item_id = '$tmp'";
 
 		if (mysqli_query($db,$sql) === TRUE) { $message = "Record has been deleted succesfully";
