@@ -50,13 +50,13 @@
 	
 	if ($havePost) {
 	
-	$itemName = htmlspecialchars(trim($_POST["itemName"]));
+	$itemName = (string)htmlspecialchars(trim($_POST["itemName"]));
 	$priceReq = htmlspecialchars(trim($_POST["priceReq"]));
-	$conditionInput = htmlspecialchars(trim($_POST["conditionInput"]));
-	$descriptionInput = htmlspecialchars(trim($_POST["descriptionInput"]));
-	$categoryInput = htmlspecialchars(trim($_POST["categoryInput"]));
-	$nameInput = htmlspecialchars(trim($_POST["nameInput"]));
-	$contactInput = htmlspecialchars(trim($_POST["contactInput"]));
+	$conditionInput = (string)htmlspecialchars(trim($_POST["conditionInput"]));
+	$descriptionInput = (string)htmlspecialchars(trim($_POST["descriptionInput"]));
+	$categoryInput = (string)htmlspecialchars(trim($_POST["categoryInput"]));
+	$nameInput = (string)htmlspecialchars(trim($_POST["nameInput"]));
+	$contactInput = (string)htmlspecialchars(trim($_POST["contactInput"]));
 
 	//session_start();
 	//$user_get = $_SESSION["login_user"];
