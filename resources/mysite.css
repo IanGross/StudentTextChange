@@ -8,6 +8,7 @@ body {
   background-position: left top;
   text-shadow: 1px 1px 1px #000;
   position:relative;
+  min-width:800px;
   
   display: block;
   color: blanchedalmond;
@@ -16,6 +17,10 @@ body {
 }
 img:hover{
   opacity:.5;
+}
+#container-fluid{ 
+	color:red;
+	white-space: nowrap;
 }
 .center{
   margin: auto;
@@ -161,6 +166,11 @@ h3{
   clear: left;
   text-align: center;
 }
+label.form_desc{
+	float:left;
+	min-width:50%;
+	clear: both;
+}
 
 .title{
 	color:blue;
@@ -178,6 +188,8 @@ h3{
 
 .value {
   margin: 0 0 0.5em 0;
+  min-width:50%;
+  clear: right;
   /*position:fixed;*/
 }
 
