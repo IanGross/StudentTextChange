@@ -15,7 +15,7 @@
 	?>
 	
 	
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="inventory.php">Student TextChange</a>
@@ -26,6 +26,7 @@
 	    </ul>
 		<ul class="nav navbar-nav navbar-right">
 	      <li><a href="profile.php">Logged in as <?php echo $user_get;?></a></li>
+		  <li><a class="btn btn-danger" href="welcome.html" onclick="alert('You have successfully Logged out')"><font color="white">Logout</font></a></li>
 	    </ul>
 		<!--
 		<div class = "search_cent">
@@ -36,6 +37,7 @@
 		-->
 	  </div>
 	</nav>
+	</br></br></br>
 	
   </head>
   
