@@ -4,10 +4,25 @@
     <title>Forms with PHP - ITWS</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <script type="text/javascript" src="resources/jquery-1.4.3.min.js"></script>
-    <script type="text/javascript" src="resources/iit.js"></script>   
-    <link href="resources/ii.css" rel="stylesheet" type="text/css"/>
-	<!--<link href="http://localhost/iitforms/resources/mysite.css" rel="stylesheet" type="text/css"/>-->
+	<script type="text/javascript" src="resources/iit.js"></script>   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="resources/mysite.css" rel="stylesheet" type="text/css"/>
+	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Student TextChange</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="welcome.html">Home</a></li>
+	      <li><a href="login.php">Log in</a></li>
+	      <li><a href="signup.php">Sign Up</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container">
+	</div>
+	
   </head>
   <body>
 	<div class="header">
@@ -53,17 +68,17 @@
 	<div class="header">
       <h2>Log In</h2>
     </div>
-	<div class="middle">
+	<div class="middle_items">
 		<form id="userloginForm" name="userloginForm" method="post" action="">
 			<fieldset> 
-				<h3><label class="field">Email (Use your RPI Email Address):</label></h3>
-				<div class="value"><input type="text" size="25" name="userName" class = "box"/></div>
+				<h3><label class="form_desc" style="text-align:right;">Email (Use your RPI Email Address):</label></h3>
+				<div class="value"><input type="text" size="25" name="userName" class = "box" style="color:black;float:center;white-space:nowrap;"/></div>
 				<!-- value="<?php/* echo $userName;*/ ?>" -->
-				<h3><label class="field">Password:</label></h3>
-				<div class="value"><input type="password" size="25" name="passWord" class = "box"/></div>
+				<h3><label class="form_desc" style="text-align:right;">Password:</label></h3>
+				<div class="value"><input type="password" size="25" name="passWord" class = "box" style="color:black;float:center;"/></div>
 				<!-- value="<?php/* echo $userName;*/ ?>" -->
 				
-				<input type="submit" value="login" id="login" name="login"/>
+				<input type="submit" value="login" id="login" name="login" style="color:black;float:right;"/>
 		   </fieldset> 
 		</form>
 	</div>
