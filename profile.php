@@ -28,52 +28,31 @@
 	      <li><a href="profile.php">Logged in as <?php echo $user_get;?></a></li>
 		  <li><a class="btn btn-danger" href="welcome.html" onclick="alert('You have successfully Logged out')"><font color="white">Logout</font></a></li>
 	    </ul>
-		<!--
-		<div class = "search_cent">
-		  <form name="searchBox" target="" method="post">
-			<input type="text" class="search" value="<?php echo $searchTerm;?>" name="searchIt" id="searchIt" placeholder="Search..">
-		  </form>
-		</div>
-		-->
 	  </div>
 	</nav>
-	</br></br></br>
-	
-  </head>
-  
-  
+	<br><br><br>
   </head>
 
   <body>
-	<!--<div id="bodyBlock">-->
 	<?php 
-  
-	// have we posted?
 	$havePost = isset($_POST["deleteBtn"]);
-  
 	if ($havePost) {
 		$tmp = $_POST["lblItemName"];
 		$sql = "DELETE FROM inventory WHERE item_id = '$tmp'";
-
 		if (mysqli_query($db,$sql) === TRUE) { $message = "Record has been deleted succesfully";
 			echo "<script type='text/javascript'>alert('$message');</script>"; } 
 		else { echo "Error: " . $sql . "<br>" . $db->error; }
-		
 	}
 	?>
-	
-	
 
     <div class="header">
       <h1>Profile</h1>
     </div>
 
     <div class="profile_item">
-
       <div class="header">
         <h2>Change Password</h2>
       </div>
-
       <form action="profile.php">
           <div class="subitem"><h3><label class="field">Current Email:</label></h3>
           <h4><?php echo $user_get;?></h4></div>
@@ -84,55 +63,38 @@
           <div class="subitem"><h3><label class="field">Enter New Password:</label></h3>
           <input type="text" size="25" value=""/></div>
 		  </br>
-
           <input type="submit" value="Submit" id="save" name="save"/><br/>
       </form>
     </div>
 
-
-
     <div class="profile_item">
-
       <div class="header">
         <h2>Delete Items</h2>
       </div>
-	  
 	  <?php
 	  $sql = "SELECT item_id, item_name, date_added FROM inventory WHERE inventory.username = '$user_get' ";
       $result = mysqli_query($db,$sql);
-	  
 	  
 	  if ($result->num_rows > 0) {
 			 // output data of each row
 			 while($row = $result->fetch_assoc()) {
 
-				  
-				  
 				 echo"<div class=\"user_items\">";
 				 echo"<h3><u>Item Name</u>: ".$row["item_name"]."</h3>";
 				 echo"<h3><u>Time Created</u>: ".$row["date_added"]."</h3>";
-				 
 				 ?>
-				 
 				 <form name="delete-item" method="POST" action="profile.php">
 					 <input type="submit" value="DELETE" name="deleteBtn" style="color:black;float:right;"/>
 					 <input type="hidden" name="lblItemName" value="<?php echo $row["item_id"]; ?>">
 				 </form>
-				 
 				 <?php
 				 echo"</br></div>";
-				 
 			}
 		} else {
 			 echo "You have 0 items created, go add a new item :D";
 		}
-	  
-	  
 	  ?>
-
     </div>
-	<!--</div>-->
-
   </body>
 </html>
 
