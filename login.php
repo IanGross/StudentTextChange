@@ -20,18 +20,13 @@
 	    </ul>
 	  </div>
 	</nav>
-	<div class="container">
-	</div>
 	
   </head>
   <body>
 	<div class="header">
       <h1>Student Text-Change</h1>
     </div>
-
-
-
-<?php
+   <?php
    include("config.php");
    session_start();
    
@@ -39,7 +34,6 @@
    
    if($_SERVER["REQUEST_METHOD"] == "POST" && $havePost2) {
       // username and password sent from form 
-      
       $myusername = mysqli_real_escape_string($db,$_POST['userName']);
       $mypassword = mysqli_real_escape_string($db,$_POST['passWord']); 
       
@@ -51,13 +45,8 @@
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
       if($count == 1) {
-         //session_register("myusername");
-
-         //$_SESSION['login_user'] = $row[0]['username'];
 		 $_SESSION["login_user"] = $myusername;
-         
          header("location: inventory.php");
       }else {
          $error = "Your Login Name or Password is invalid";
@@ -69,18 +58,15 @@
       <h2>Log In</h2>
     </div>
 	<div class="middle_items">
-		<form id="userloginForm" name="userloginForm" method="post" action="">
-			<fieldset> 
-				<h3><label class="form_desc" style="text-align:right;">Email (Use your RPI Email Address):</label></h3>
-				<div class="value"><input type="text" size="25" name="userName" class = "box" style="color:black;float:center;white-space:nowrap;"/></div>
-				<!-- value="<?php/* echo $userName;*/ ?>" -->
-				<h3><label class="form_desc" style="text-align:right;">Password:</label></h3>
-				<div class="value"><input type="password" size="25" name="passWord" class = "box" style="color:black;float:center;"/></div>
-				<!-- value="<?php/* echo $userName;*/ ?>" -->
-				
-				<input type="submit" value="login" id="login" name="login" style="color:black;float:right;"/>
-		   </fieldset> 
-		</form>
+	  <form id="userloginForm" name="userloginForm" method="post">
+	    <fieldset> 
+	      <h3><label class="form_desc" style="text-align:right;">Email (Use your RPI Email Address):</label></h3>
+	      <div class="value"><input type="text" size="25" name="userName" class = "box" style="color:black;float:center;white-space:nowrap;"/></div>
+		  <h3><label class="form_desc" style="text-align:right;">Password:</label></h3>
+		  <div class="value"><input type="password" size="25" name="passWord" class = "box" style="color:black;float:center;"/></div>
+		  <input type="submit" value="login" id="login" name="login" style="color:black;float:right;"/>
+		 </fieldset> 
+	  </form>
 	</div>
   </body>
 </html>
